@@ -35,7 +35,7 @@
     const MSG_PERMISSION_DENIED = "Permission denied.";
     const MSG_UNABLE_TO_LOCATE_USERS = "Не могу найти пользователей с этим днём рождения.";
     const MSG_BIRTHDAY_IN_A_WEEK = "Скоро день рождения у";
-    const DATE_FORMAT = "DD/MM/YYYY";
+    const DATE_FORMAT = ["DD.MM.YYYY", "D.M.YYYY", "DD/MM/YYYY", "D/M/YYYY", ];
 
     const QUOTES = [
         "Hoping that your day will be as special as you are.",
@@ -206,7 +206,7 @@
 
     module.exports = function (robot) {
         const regExpUsername = new RegExp(/(?:@?([\w\d .\-_]+)\?*)/),
-            regExpDate = new RegExp(/((0?[1-9]|[12][0-9]|3[01])\/(0?[1-9]|1[0-2])\/([\d]{4}))\b/);
+            regExpDate = new RegExp(/((0?[1-9]|[12][0-9]|3[01])[\/.](0?[1-9]|1[0-2])[\/.]([\d]{4}))\b/);
 
         const routes = {
             set: new RegExp(/(birthday set)\s+/.source + regExpUsername.source + /\s+/.source + regExpDate.source, 'i'),
